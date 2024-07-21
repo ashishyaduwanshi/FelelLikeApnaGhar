@@ -152,6 +152,9 @@
     text-decoration: none;
     color: black;
 }
+.add-review{
+    margin-left: 140px;
+}
 
 @media (max-width: 400px) {
     .form-control.search-inp {
@@ -218,5 +221,10 @@
     .show-img {
         height: 21vh;
     }
+    .add-review{
+        margin-left: 2rem !important;
+        width: 15rem;
+    }
+    
 }
 

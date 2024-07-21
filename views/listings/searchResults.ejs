@@ -1,40 +1,36 @@
 <% layout("/layouts/boilerplate") %>
 
-<!-- Filters Section -->
-<div id="filters">
-    <% if (allListings.length > 0) { %>
+    <!-- Filters Section -->
+    <div id="filters">
         <div class="tax-toggle">
             <div class="form-check-reverse form-switch">
                 <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
                 <label class="form-check-reverse" for="flexSwitchCheckDefault">Display total after taxes</label>
             </div>
         </div>
-    <% } %>
-</div>
-
+    </div>
 <!-- Listings Section -->
-<% if (allListings.length === 0) { %>
+<% if (listings.length === 0) { %>
     <div class="alert alert-warning mt-3" role="alert">
-        Your location does not found. Redirecting to home page...
+        The listing you requested for was not found. Redirecting to the home page...
     </div>
     <script>
         setTimeout(function () {
-            window.location.href = "/listings"; // Replace with your actual listings page URL
-        }, 4000); // Redirect after 4 seconds
+            window.location.href = "/listings"; // Redirect to home page after 4 seconds
+        }, 4000); // 4000 milliseconds = 4 seconds
     </script>
 <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-3 mt-1 row-cols-sm-1">
-        <% for (let listing of allListings) { %>
+        <% for (let listing of listings) { %>
             <a href="/listings/<%= listing._id %>" class="listing-link">
                 <div class="card col listing-card">
                     <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing_image">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <h5 class="card-title"><b><%= listing.title %></b></h5>
-                        <!-- Display the price with GST information -->
                         <p class="card-text">
                             &#8377; <span class="price"><%= listing.price %></span>/night
-                            <i class="tax-info"> &nbsp; With 18% GST</i>
+                            <i class="tax-info"> &nbsp; with 18% GST</i>
                         </p>
                     </div>
                 </div>
@@ -42,6 +38,5 @@
         <% } %>
     </div>
 <% } %>
-
-<!-- Include JavaScript for GST Toggle -->
-<script src="/js/addGst.js"></script>
+    <!-- Include JavaScript for GST Toggle -->
+    <script src="/js/addGst.js"></script>

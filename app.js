@@ -1,6 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
+
 const express = require("express");
 const mongoose = require("mongoose");
 const path = require("path");
@@ -8,7 +9,7 @@ const methodOverride = require("method-override");
 const ejsMate = require('ejs-mate');
 const ExpressError = require("./utils/expressError.js");
 const session = require("express-session");
-const MongoStore = require("connect-mongo")
+const MongoStore = require("connect-mongo");
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const passport = require("passport");
@@ -18,12 +19,13 @@ const User = require("./models/user.js");
 const listingsRouter = require("./routes/listing.js");
 const reviewsRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const searchRouter = require('./routes/search.js'); // Add this line
 
-const app = express();
+const app = express(); // Initialize app before using it
 
 const dbUrl = process.env.ATLASDB_URL;
 
-main()
+main() 
     .then(() => {
         console.log("Connected to DB");
     })
@@ -68,8 +70,6 @@ const sessionOptions = {
     },
 };
 
-
-
 app.use(session(sessionOptions));
 app.use(flash());
 
@@ -96,6 +96,7 @@ app.use((req, res, next) => {
 app.use("/listings", listingsRouter);
 app.use("/listings/:id/reviews", reviewsRouter);
 app.use("/", userRouter);
+app.use('/', searchRouter); // Add this line
 
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not found"));

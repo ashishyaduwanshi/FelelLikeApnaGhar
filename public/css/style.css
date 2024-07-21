@@ -35,7 +35,8 @@ height: 100vh;
 
 }
 
-.f-info-socials i {
+.f-info-socials a i {
+   color: rgb(19, 18, 18);
    font-size: 1.5rem;
    margin-right: .5rem;
 }

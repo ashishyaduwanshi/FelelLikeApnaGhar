@@ -16,13 +16,13 @@
     </div>
     <script>
         setTimeout(function () {
-            window.location.href = "/listings"; // Redirect to home page after 4 seconds
+            window.location.href = "/"; // Redirect to home page after 4 seconds
         }, 4000); // 4000 milliseconds = 4 seconds
     </script>
 <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-3 mt-1 row-cols-sm-1">
         <% for (let listing of listings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
+            <a href="/<%= listing._id %>" class="listing-link">
                 <div class="card col listing-card">
                     <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing_image">
                     <div class="card-img-overlay"></div>

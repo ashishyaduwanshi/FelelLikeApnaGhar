@@ -7,21 +7,21 @@ const mongoose = require("mongoose");
 const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require('ejs-mate');
-const ExpressError = require("./utils/expressError.js");
+const ExpressError = require("./utils/expressError");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
-const User = require("./models/user.js");
+const User = require("./models/user");
 
-const listingsRouter = require("./routes/listing.js");
-const reviewsRouter = require("./routes/review.js");
-const userRouter = require("./routes/user.js");
-const searchRouter = require('./routes/search.js'); // Add this line
+const listingsRouter = require("./routes/listing");
+const reviewsRouter = require("./routes/review");
+const userRouter = require("./routes/user");
+const searchRouter = require('./routes/search');
 
-const app = express(); // Initialize app before using it
+const app = express();
 
 const dbUrl = process.env.ATLASDB_URL;
 
@@ -53,7 +53,7 @@ const store = MongoStore.create({
     },
     touchAfter: 24 * 3600,
 });
-store.on("error", () => {
+store.on("error", (err) => {
     console.log("error in mongo session store", err);
 })
 
@@ -87,16 +87,10 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    // console.log('Session ID:', req.sessionID);
-    // console.log('Session:', req.session);
-    next();
-});
-
-app.use("/listings", listingsRouter);
-app.use("/listings/:id/reviews", reviewsRouter);
-app.use("/", userRouter);
-app.use('/', searchRouter); // Add this line
+app.use("/search", searchRouter); // Place /search route before /:id routes
+app.use("/user", userRouter);
+app.use("/", listingsRouter); // Use root instead of /listings
+app.use("/:id/reviews", reviewsRouter);
 
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page not found"));

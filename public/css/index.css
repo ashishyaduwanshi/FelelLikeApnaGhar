@@ -225,6 +225,9 @@
         margin-left: 2rem !important;
         width: 15rem;
     }
-    
+    .contact-me{
+        display: flex;
+        flex-wrap: wrap;
+    }
 }
 

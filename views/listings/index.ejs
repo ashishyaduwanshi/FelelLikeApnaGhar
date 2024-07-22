@@ -19,13 +19,13 @@
     </div>
     <script>
         setTimeout(function () {
-            window.location.href = "/listings"; // Replace with your actual listings page URL
+            window.location.href = "/"; // Replace with your actual listings page URL
         }, 4000); // Redirect after 4 seconds
     </script>
 <% } else { %>
     <div class="row row-cols-lg-3 row-cols-md-3 mt-1 row-cols-sm-1">
         <% for (let listing of allListings) { %>
-            <a href="/listings/<%= listing._id %>" class="listing-link">
+            <a href="/<%= listing._id %>" class="listing-link">
                 <div class="card col listing-card">
                     <img src="<%= listing.image.url %>" class="card-img-top" style="height: 20rem;" alt="listing_image">
                     <div class="card-img-overlay"></div>

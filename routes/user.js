@@ -1,9 +1,10 @@
+// In routes/user.js
 const express = require("express");
 const router = express.Router();
-const wrapAsync = require("../utils/wrapAsync.js");
+const wrapAsync = require("../utils/wrapAsync");
 const passport = require("passport");
-const { saveRedirectUrl } = require("../middleware.js");
-const userController = require("../controllers/users.js");
+const { saveRedirectUrl } = require("../middleware");
+const userController = require("../controllers/users");
 
 // Route for user sign-up
 router.route("/signup")
@@ -15,7 +16,7 @@ router.route("/login")
     .get(userController.renderLoginForm) // Render login form
     .post(
         saveRedirectUrl,
-        passport.authenticate("local", { failureRedirect: "/login", failureFlash: true }),
+        passport.authenticate("local", { failureRedirect: "/user/login", failureFlash: true }),
         userController.loginUser
     ); // Handle user login
 

@@ -23,7 +23,7 @@ module.exports.showListing = async (req, res) => {
 
     if (!listing) {
         req.flash("error", "Listing you requested does not exist");
-        return res.redirect("/listings");
+        return res.redirect("/");
     }
 
     console.log(listing);
@@ -40,7 +40,7 @@ module.exports.createNewListing = async (req, res, next) => {
     newListing.image = { url, filename }
     await newListing.save();
     req.flash("success", "New listing created");
-    res.redirect("/listings");
+    res.redirect("/");
 };
 
 // Render form for editing a listing
@@ -50,7 +50,7 @@ module.exports.editListing = async (req, res) => {
 
     if (!listing) {
         req.flash("error", "Listing you requested does not exist");
-        return res.redirect("/listings");
+        return res.redirect("/");
     }
 
     let originalImageUrl = listing.image.url;
@@ -72,7 +72,7 @@ module.exports.updateListing = async (req, res) => {
         await listing.save();
     }
     req.flash("success", "Listing updated");
-    res.redirect(`/listings/${id}`);
+    res.redirect(`/${id}`);
 };
 
 // Delete a specific listing
@@ -81,5 +81,5 @@ module.exports.deleteListing = async (req, res) => {
     const deletedListing = await Listing.findByIdAndDelete(id);
     console.log("Deleted Listing:", deletedListing);
     req.flash("success", "Listing deleted successfully");
-    res.redirect("/listings");
+    res.redirect("/");
 };

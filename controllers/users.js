@@ -1,4 +1,4 @@
-const User = require("../models/user.js");
+const User = require("../models/user");
 
 // Render the sign-up form
 module.exports.renderSignUpForm = (req, res) => {
@@ -16,11 +16,11 @@ module.exports.signUpUser = async (req, res) => {
                 return next(err);
             }
             req.flash("success", "Welcome to Wanderlust");
-            res.redirect("/listings");
+            res.redirect("/");
         });
     } catch (e) {
         req.flash("error", e.message);
-        res.redirect("/signup");
+        res.redirect("/user/signup");
     }
 };
 
@@ -32,7 +32,7 @@ module.exports.renderLoginForm = (req, res) => {
 // Handle user login
 module.exports.loginUser = async (req, res) => {
     req.flash("success", "Welcome to Wanderlust! You are logged in.");
-    const redirectUrl = res.locals.redirectUrl || "/listings";
+    const redirectUrl = res.locals.redirectUrl || "/";
     res.redirect(redirectUrl);
 };
 
@@ -43,6 +43,6 @@ module.exports.logout = (req, res) => {
             return next(err);
         }
         req.flash("success", "You are logged out");
-        res.redirect("/listings");
+        res.redirect("/");
     });
 };

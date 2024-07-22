@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Listing = require('../models/listing');
 
-router.get('/search', async (req, res) => {
+router.get('/', async (req, res) => {
     const { query, filter } = req.query;
     let listings;
 

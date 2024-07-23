@@ -46,7 +46,7 @@ height: 100vh;
 }
 
 .f-info {
-   height: 8rem;
+   height: 10rem;
    display: flex;
    background-color: #ebebeb;
    flex-wrap: wrap;

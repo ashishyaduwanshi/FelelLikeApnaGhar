@@ -166,8 +166,13 @@
     .listing-title{
         margin-left: 20%;
     }
+    .add-newListing{
+        margin-left: 189px;
+    }
+    .Explore{
+        margin-left: -185px;
+    }
 }
-
 @media (max-width: 768px) {
     .form-control.search-inp {
         width: 13rem;

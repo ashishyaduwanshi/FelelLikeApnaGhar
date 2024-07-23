@@ -133,9 +133,7 @@
     }
 
     .nav-link {
-        padding: 0.5rem 1rem;
         text-align: center;
-        width: 100%;
     }
 
     .form-control.search-inp {
@@ -166,13 +164,11 @@
     .listing-title{
         margin-left: 20%;
     }
-    .add-newListing{
-        margin-left: 189px;
-    }
-    .Explore{
-        margin-left: -185px;
+    .users{
+        margin-right: -180px;
     }
 }
+
 @media (max-width: 768px) {
     .form-control.search-inp {
         width: 13rem;

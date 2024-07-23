@@ -105,130 +105,8 @@
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 3000px) {
-    .navbar-toggler { 
-        display: block;
-    }
-    .show-img {
-        height: 50vh;
-    }
-    .navbar-toggler-icon {
-        height: 30px;
-        width: 30px;
-    }
 
-    .navbar-collapse {
-        margin-top: 3px;
-        background-color: #ffffff;
-        padding: 1rem;
-        border-top: 1px solid #ddd;
-        overflow: hidden;
-    }
-
-    .navbar-nav {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .nav-link {
-        padding: 0.5rem 1rem;
-        text-align: center;
-        width: 100%;
-    }
-
-    .form-control.search-inp {
-        width: 13rem;
-        padding-left: 1px;
-        padding-right: 0;
-        /* Full width on smaller screens */
-    }
-
-    .btn.search-btn {
-        width: 6rem;
-        padding: 0;
-        /* Full width on smaller screens */
-    }
-
-    #filters {
-        margin-top: 0;
-        /* Ensure there's no initial margin */
-        transition: margin-top 0.35s ease;
-        /* Smooth transition for margin adjustment */
-    }
-    .listing-title h2{
-        font-weight: 100px;
-        margin-left: 26%;
-        font-size: 35px;
-    }
-    .btns .btn-info{
-        font-size: 25px;
-    }
-    .btns .btn-danger{
-        font-size: 25px;
-    }
-    .add-review {
-        font-size: 30px;
-        margin-left: 10% !important;
-    }
-    .add-review button {
-        font-size: 20px;
-    }
-    .add-review h5 {
-        font-size: 30px;
-    }
-    
-    .leave-review{
-        margin-left: 17%;
-        font-size: 30px;
-    }
-    .leave-review h4{
-        font-size: 30px;
-    }
-    .leave-review button{
-        font-size: 30px;
-    }
-    .leave-review .starability-slot input{
-        font-size: 30px;
-    }
-    .card-body{
-        font-size: 30px;
-    }
-    .f-info{
-        width: 100%;
-        height: 100%;
-    }
-    .f-info-socials a i{
-        font-size: 25px;
-    }
-    .f-info-brand{
-        font-size: 25px;
-    }
-    .f-info-links   {
-        font-size: 25px;
-    }
-    .users{
-        font-size: 20px;
-        display: flex;
-    }
-    .navbar-nav{
-        font-size: 20px;
-    }
-    .form-control.search-inp {
-        height: 47px;
-        width: 17rem;
-        padding-left: 3px;
-        padding-right: 0;
-        font-size: 16px;
-    }
-    .navbar-brand i {
-        font-size: 35px;
-
-    }
-}
-
-
-@media (max-width: 1000px) {
+@media (max-width: 1500px) {
     .navbar-toggler { 
         display: block;
     }
@@ -283,6 +161,9 @@
         margin-left: 13% !important;
     }
     .leave-review{
+        margin-left: 20%;
+    }
+    .listing-title{
         margin-left: 20%;
     }
 }
@@ -321,6 +202,9 @@
     .leave-review{
         margin-left: 20%;
     }
+    .listing-title{
+        margin-left: 20%;
+    }
 }
 
 @media (max-width: 400px) {
@@ -356,6 +240,9 @@
     }
     .leave-review{
         margin-left: 17%;
+    }
+    .listing-title{
+        margin-left: 20%;
     }
 }
 
@@ -406,5 +293,8 @@
     }
     .leave-review{
         margin-left: 12%;
+    }
+    .listing-title{
+        margin-left: 20%;
     }
 }

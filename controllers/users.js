@@ -37,7 +37,7 @@ module.exports.loginUser = async (req, res) => {
 };
 
 // Handle user logout
-module.exports.logout = (req, res) => {
+module.exports.logout = (req, res,next) => {
     req.logOut((err) => {
         if (err) {
             return next(err);
